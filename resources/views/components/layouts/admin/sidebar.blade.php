@@ -7,12 +7,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? 'Page Title' }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css'])
     @fluxAppearance
 </head>
 
-<body class="min-h-screen bg-white dark:bg-zinc-800">
-<flux:sidebar sticky collapsible class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
+<body class="min-h-screen bg-gray-50 dark:bg-gray-950 gradient-mesh">
+<flux:sidebar sticky collapsible class="glass-sidebar">
     <flux:sidebar.header class="flex! items-center!">
         <flux:sidebar.brand class="gap-0!" href="{{ route('admin.dashboard') }}" name="{{ config('app.name') }}">
             <x-slot name="logo" class="w-0! min-w-0!">
@@ -51,13 +54,13 @@
         </flux:menu>
     </flux:dropdown>
 </flux:sidebar>
-<flux:header class="lg:hidden">
+<flux:header class="lg:hidden glass-header">
     <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left"/>
     <flux:spacer/>
     <flux:dropdown position="top" align="start">
         <flux:profile :chevron="false" avatar:name="{{ ucfirst(strtolower(Auth::user()->name)) }}"
-                      name="{{Auth::user()->name}}" avatar:color="auto"/>
-        <flux:menu>
+                      name="{{Auth::user()->name}}" avatar:color="auto" class="transition-transform duration-200 hover:scale-105"/>
+        <flux:menu class="glass-modal !rounded-xl">
             <flux:sidebar.item icon="arrow-left-start-on-rectangle" href="{{ route('home') }}">
                 Exit Admin
             </flux:sidebar.item>

@@ -38,9 +38,9 @@
     $iconSizeFinal = $attributes->get('icon-size', $iconSize);
 @endphp
 
-<div class="group border rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-200 {{ $theme['card'] }}">
+<div class="group glass-stats-card hover:scale-[1.02] {{ $theme['card'] }}">
     <div class="flex items-start justify-between gap-4">
-        <div class="inline-flex items-center justify-center rounded-xl ring-1 ring-black/5 dark:ring-white/5 bg-white/70 dark:bg-white/5 p-2">
+        <div class="inline-flex items-center justify-center rounded-xl ring-1 ring-black/5 dark:ring-white/5 bg-white/50 dark:bg-white/10 backdrop-blur-sm p-2">
             <flux:icon name="{{ $icon }}" class="{{ $iconSizeFinal }} {{ $theme['icon'] }}" variant="solid" />
         </div>
     </div>

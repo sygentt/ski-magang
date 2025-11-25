@@ -9,15 +9,15 @@
     $approvalRate = $totalPostsAll > 0 ? round(($approvedCountAll / $totalPostsAll) * 100) : 0;
 @endphp
 <div class="md:p-8 space-y-8">
-    <flux:heading class="text-4xl!">Dashboard</flux:heading>
+    <flux:heading class="text-4xl! bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Dashboard</flux:heading>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" wire:ignore>
-        <div class="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl p-6">
+        <div class="glass-card p-6">
             <flux:heading size="xl" class="mb-4">Posts per Month (last 12 months)</flux:heading>
             <div class="relative h-56 md:h-64">
                 <canvas id="postsByMonthChart" class="!h-full"></canvas>
             </div>
         </div>
-        <div class="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl p-6">
+        <div class="glass-card p-6">
             <flux:heading size="xl" class="mb-4">New Users per Month (last 12 months)</flux:heading>
             <div class="relative h-56 md:h-64">
                 <canvas id="usersByMonthChart" class="!h-full"></canvas>
@@ -46,11 +46,11 @@
                                       :data="number_shorten($metric->active_users ?? 0)"/>
     </div>
 
-    <div class="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl p-6">
+    <div class="glass-card p-6">
         <flux:heading size="xl" class="mb-4">Top 10 Most Liked Posts</flux:heading>
         <div class="overflow-x-auto">
             <div
-                class="overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
+                class="overflow-hidden w-full overflow-x-auto rounded-xl glass-table">
                 <table class="w-full text-left text-sm text-on-surface dark:text-on-surface-dark">
                     <thead
                         class="border-b border-outline bg-surface-alt text-sm text-on-surface-strong dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark-strong">
@@ -121,7 +121,7 @@
     </div>
 
     @foreach($topLiked as $data)
-        <flux:modal name="top-liked-{{ $data['id'] }}" class="max-w-[90%] w-full sm:max-w-lg outline-none" :dismissible="false">
+        <flux:modal name="top-liked-{{ $data['id'] }}" class="max-w-[90%] w-full sm:max-w-lg glass-modal !border-0" :dismissible="false">
             <div class="space-y-3">
                 <div>
                     <flux:heading class="text-xl">Internship Details</flux:heading>
