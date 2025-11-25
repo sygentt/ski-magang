@@ -4,10 +4,11 @@
         <div class="flex gap-3 items-center">
             <flux:input placeholder="Search post" icon="magnifying-glass" class="max-w-xs"
                         wire:model="draftSearchQuery"/>
-            <flux:button variant="primary" type="submit">Search</flux:button>
+            <flux:button variant="primary" type="submit"
+                         class="glass-button-primary !rounded-xl transition-all duration-200 hover:scale-105">Search</flux:button>
         </div>
     </form>
-    <flux:modal name="filter-posts" class="max-w-[90%] w-full sm:max-w-lg outline-none"
+    <flux:modal name="filter-posts" class="max-w-[90%] w-full sm:max-w-lg glass-modal !border-0"
                 :dismissible="false">
         <div class="space-y-3">
             <div>
@@ -57,9 +58,11 @@
                         </div>
                     @endif
                 </div>
-                <div class="justify-self-end space-x-1">
-                    <flux:button variant="primary" color="red" wire:click="clearFilters">Reset</flux:button>
-                    <flux:button variant="primary" wire:click="applyFilters">Apply</flux:button>
+                <div class="justify-self-end space-x-2">
+                    <flux:button variant="primary" color="red" wire:click="clearFilters"
+                                 class="!rounded-xl transition-all duration-200 hover:scale-105">Reset</flux:button>
+                    <flux:button variant="primary" wire:click="applyFilters"
+                                 class="glass-button-primary !rounded-xl transition-all duration-200 hover:scale-105">Apply</flux:button>
                 </div>
             </form>
         </div>
@@ -69,24 +72,26 @@
     @endif
     <div class="flex gap-3 w-fit items-center">
         @if(isset($selectMode) && ($hasItems ?? true))
-            <flux:button variant="primary" color="red" class="shrink-0" wire:click="$toggle('selectMode')">
+            <flux:button variant="primary" color="red" class="shrink-0 !rounded-xl transition-all duration-200 hover:scale-105" wire:click="$toggle('selectMode')">
                 {{ ($selectMode ?? false) ? 'Done' : 'Select' }}
             </flux:button>
         @endif
         @if(!empty($isCreatePage))
             <flux:modal.trigger name="create-post">
-                <flux:button icon="plus" color="zinc" variant="primary" class="shrink-0">
+                <flux:button icon="plus" color="zinc" variant="primary" class="shrink-0 glass-button-primary !rounded-xl transition-all duration-200 hover:scale-105">
                     Create Post
                 </flux:button>
             </flux:modal.trigger>
         @endif
         <flux:modal.trigger name="filter-posts" class="hidden md:flex">
-            <flux:button icon="adjustments-horizontal" variant="primary">
+            <flux:button icon="adjustments-horizontal" variant="primary"
+                         class="glass-button !rounded-xl transition-all duration-200 hover:scale-105">
                 Filter
             </flux:button>
         </flux:modal.trigger>
         <flux:modal.trigger name="filter-posts" class="flex md:hidden">
-            <flux:button icon="adjustments-horizontal" variant="primary"/>
+            <flux:button icon="adjustments-horizontal" variant="primary"
+                         class="glass-button !rounded-xl transition-all duration-200 hover:scale-105"/>
         </flux:modal.trigger>
     </div>
 </div>
