@@ -7,17 +7,20 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? 'Page Title' }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @fluxAppearance
     @stack('aos-head')
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 gradient-mesh">
 @php
     $isLoggedIn = Auth::check();
 @endphp
 <flux:header container
-             class="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 place-content-center top-0 z-50 sticky">
+             class="glass-header place-content-center top-0 z-50 sticky transition-all duration-300">
     <flux:sidebar.toggle class="lg:hidden" icon="bars-2"/>
     <flux:brand href="{{ route('home') }}" name="{{ config('app.name') }}" class="max-lg:hidden" wire:navigate/>
     <flux:spacer/>
@@ -92,7 +95,7 @@
     </div>
 </flux:header>
 <flux:sidebar stashable sticky
-              class="border-r border-zinc-200 bg-zinc-50 lg:hidden rtl:border-l rtl:border-r-0 dark:border-zinc-700 dark:bg-zinc-900">
+              class="glass-sidebar lg:hidden rtl:border-l rtl:border-r-0">
     <flux:sidebar.toggle class="lg:hidden" icon="x-mark"/>
     <flux:brand href="{{ route('home') }}" name="{{ config('app.name') }}" class="px-2 dark:hidden" wire:navigate/>
     <flux:brand href="{{ route('home') }}" name="{{ config('app.name') }}" class="hidden px-2 dark:flex" wire:navigate/>
@@ -112,7 +115,7 @@
     {{ $slot }}
 </main>
 
-<flux:footer class="border-t border-gray-200 bg-white px-4 py-8 dark:border-gray-800 dark:bg-gray-950">
+<flux:footer class="glass-footer px-4 py-8">
     <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 md:flex-row">
         <div class="text-center text-gray-700 md:text-left dark:text-gray-300">
             &copy; {{ date('Y') }} SKI MAGANG. All rights reserved.

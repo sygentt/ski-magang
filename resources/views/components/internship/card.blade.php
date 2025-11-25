@@ -5,7 +5,15 @@
 <div wire:key="internship-card-{{ $internship->id }}" wire:poll.3s>
     <flux:modal.trigger name="internship-{{ $internship->id }}" wire:key="trigger-{{ $internship->id }}">
         <div
-            class="p-6 block rounded-lg shadow outline outline-gray-100 dark:outline-gray-500 hover:outline-blue-500 transition-colors duration-300 cursor-pointer dark:shadow-none overflow-hidden bg-white/30 backdrop-blur-md dark:bg-gray-900/30 h-full">
+            class="group p-6 block rounded-2xl cursor-pointer overflow-hidden h-full
+                   bg-white/60 dark:bg-gray-900/60
+                   backdrop-blur-xl
+                   border border-white/20 dark:border-white/10
+                   shadow-[0_8px_32px_rgba(31,38,135,0.1)]
+                   hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)]
+                   hover:border-indigo-300/50 dark:hover:border-indigo-500/30
+                   hover:scale-[1.02]
+                   transition-all duration-300 ease-out">
             <div class="flex flex-col justify-between h-full space-y-2">
                 <div class="space-y-1">
                     @if($isCreateRoute)
@@ -75,7 +83,7 @@
         </div>
     </flux:modal.trigger>
 
-    <flux:modal name="internship-{{ $internship->id }}" class="max-w-[90%] w-full sm:max-w-lg outline-none"
+    <flux:modal name="internship-{{ $internship->id }}" class="max-w-[90%] w-full sm:max-w-lg glass-modal !border-0"
                 wire:key="modal-{{ $internship->id }}"
                 :dismissible="false">
         <div class="space-y-3">
@@ -197,7 +205,7 @@
         </div>
     </flux:modal>
     @if($isCreateRoute && !$isInactive)
-        <flux:modal class="max-w-[90%] w-full sm:max-w-2xl outline-none" name="edit-internship-{{ $internship->id }}"
+        <flux:modal class="max-w-[90%] w-full sm:max-w-2xl glass-modal !border-0" name="edit-internship-{{ $internship->id }}"
                     :dismissible="true" wire:ignore.self>
             <div class="space-y-4">
                 <div class="flex items-center justify-between">
@@ -337,7 +345,7 @@
                 </form>
             </div>
         </flux:modal>
-        <flux:modal class="max-w-[90%] w-full sm:max-w-md outline-none" name="delete-internship-{{ $internship->id }}"
+        <flux:modal class="max-w-[90%] w-full sm:max-w-md glass-modal !border-0" name="delete-internship-{{ $internship->id }}"
                     :dismissible="true" wire:ignore.self>
             <div class="space-y-4">
                 <div>
