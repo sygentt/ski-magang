@@ -78,7 +78,7 @@
     <flux:modal name="internship-{{ $internship->id }}" class="max-w-[90%] w-full sm:max-w-lg outline-none"
                 wire:key="modal-{{ $internship->id }}"
                 :dismissible="false">
-        <div class="space-y-3">
+        <div class="space-y-3 max-h-[80vh] overflow-y-auto">
             <div>
                 <flux:heading class="text-xl">Internship Details</flux:heading>
             </div>

@@ -20,7 +20,7 @@
         <flux:text class="text-gray-500">Please <a href="{{ route('login') }}" class="text-blue-600 hover:underline">login</a> to leave a comment.</flux:text>
     @endauth
 
-    <div class="space-y-3 max-h-64 overflow-y-auto">
+    <div class="space-y-3 max-h-48 overflow-y-auto">
         @forelse($comments as $comment)
             <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg" wire:key="comment-{{ $comment->id }}">
                 <div class="flex justify-between items-start">
